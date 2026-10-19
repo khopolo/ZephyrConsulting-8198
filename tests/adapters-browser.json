@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "route": "/",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "route": "/forgot-password",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "route": "/checkout/shiftmate-month",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "route": "/admin",
+      "status": 200,
+      "overflow": false
+    }
+  ],
+  "pageErrors": [],
+  "health": 200,
+  "disabledWebhook": 503,
+  "scope": "Local regression only; no actual provider/destination execution"
+}

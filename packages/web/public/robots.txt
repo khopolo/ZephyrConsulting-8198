@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /
+# Pre-launch build. Replace after legal review and production domain configuration.

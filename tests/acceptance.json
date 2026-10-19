@@ -1,0 +1,151 @@
+[
+  {
+    "test": "anonymous dashboard denied",
+    "result": {
+      "ok": false,
+      "code": "UNAUTHORIZED",
+      "message": "Please sign in to continue."
+    }
+  },
+  {
+    "test": "anonymous admin denied",
+    "result": {
+      "ok": false,
+      "code": "UNAUTHORIZED",
+      "message": "Please sign in to continue."
+    }
+  },
+  {
+    "test": "contact validation",
+    "result": {
+      "ok": false,
+      "code": "BAD_REQUEST",
+      "message": "Input validation failed"
+    }
+  },
+  {
+    "test": "registration A",
+    "result": {
+      "status": 200
+    }
+  },
+  {
+    "test": "dashboard A",
+    "result": {
+      "ok": true,
+      "orders": 0
+    }
+  },
+  {
+    "test": "authenticated ticket saved",
+    "result": {
+      "ok": true,
+      "data": {
+        "reference": "6c4c626c-f478-43e7-ac29-d51fb98ba3a6",
+        "message": "Your request has been saved. Email notifications are not configured; keep this reference. Sign in before submitting to track requests in your dashboard."
+      }
+    }
+  },
+  {
+    "test": "A own ticket",
+    "result": {
+      "ok": true,
+      "tickets": 1
+    }
+  },
+  {
+    "test": "customer admin rejected",
+    "result": {
+      "ok": false,
+      "code": "FORBIDDEN",
+      "message": "Administrator permission required."
+    }
+  },
+  {
+    "test": "checkout fails closed",
+    "result": {
+      "ok": false,
+      "code": "PRECONDITION_FAILED",
+      "message": "Checkout is not enabled. Payment verification and destination-app entitlement enforcement must be configured and tested first."
+    }
+  },
+  {
+    "test": "no entitlement rejected",
+    "result": {
+      "ok": false,
+      "code": "FORBIDDEN",
+      "message": "No current entitlement for this product."
+    }
+  },
+  {
+    "test": "honeypot rejected",
+    "result": {
+      "ok": false,
+      "code": "BAD_REQUEST",
+      "message": "Unable to submit this request."
+    }
+  },
+  {
+    "test": "contact rate limit",
+    "result": {
+      "ok": false,
+      "code": "TOO_MANY_REQUESTS",
+      "message": "Too many requests. Please try again in an hour."
+    }
+  },
+  {
+    "test": "registration B",
+    "result": {
+      "status": 200
+    }
+  },
+  {
+    "test": "B isolation",
+    "result": {
+      "ok": true,
+      "tickets": 0,
+      "orders": 0
+    }
+  },
+  {
+    "test": "logout",
+    "result": {
+      "status": 200,
+      "dashboard": {
+        "ok": false,
+        "code": "UNAUTHORIZED",
+        "message": "Please sign in to continue."
+      }
+    }
+  },
+  {
+    "test": "email login",
+    "result": {
+      "status": 200
+    }
+  },
+  {
+    "test": "webhook refused",
+    "result": {
+      "status": 503
+    }
+  },
+  {
+    "test": "mobile width /",
+    "result": {
+      "overflow": false
+    }
+  },
+  {
+    "test": "mobile width /services",
+    "result": {
+      "overflow": false
+    }
+  },
+  {
+    "test": "mobile nav",
+    "result": {
+      "visible": true
+    }
+  }
+]

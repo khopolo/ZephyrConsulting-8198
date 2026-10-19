@@ -1,0 +1,166 @@
+{
+  "/": {
+    "title": "Your Business. Our Support. | Zephyr Consulting",
+    "overflow": false,
+    "url": "http://localhost:4200/"
+  },
+  "/sign-in": {
+    "title": "Customer portal | Zephyr Consulting",
+    "overflow": false,
+    "url": "http://localhost:4200/sign-in"
+  },
+  "/forgot-password": {
+    "title": "Password recovery | Zephyr Consulting",
+    "overflow": false,
+    "url": "http://localhost:4200/forgot-password"
+  },
+  "/reset-password?token=synthetic-invalid": {
+    "title": "Reset password | Zephyr Consulting",
+    "overflow": false,
+    "url": "http://localhost:4200/reset-password"
+  },
+  "/verify-email": {
+    "title": "Email verification | Zephyr Consulting",
+    "overflow": false,
+    "url": "http://localhost:4200/verify-email"
+  },
+  "/checkout/shiftmate-month": {
+    "title": "Purchase details | Zephyr Consulting",
+    "overflow": false,
+    "url": "http://localhost:4200/checkout/shiftmate-month"
+  },
+  "/admin": {
+    "title": "Zephyr Consulting \u2014 Your Business. Our Support.",
+    "overflow": false,
+    "url": "http://localhost:4200/admin"
+  },
+  "recoveryDisabled": true,
+  "unconfiguredRecovery": {
+    "statuses": [
+      503,
+      503
+    ],
+    "equivalent": true
+  },
+  "readiness": {
+    "status": 200,
+    "body": {
+      "json": {
+        "mode": "disabled",
+        "emailDeliveryEnabled": false,
+        "downloadsEnabled": false,
+        "products": [
+          {
+            "productId": "safespace",
+            "checkoutEnabled": false,
+            "blockers": [
+              {
+                "code": "implementation",
+                "message": "Payment and destination lifecycle implementation still in progress"
+              },
+              {
+                "code": "mode",
+                "message": "Billing mode is disabled or unknown"
+              },
+              {
+                "code": "credentials",
+                "message": "Environment-specific Payfast credentials are missing"
+              },
+              {
+                "code": "ingress",
+                "message": "Trusted notification source metadata is not available"
+              },
+              {
+                "code": "email",
+                "message": "Real verification/reset email delivery is not verified"
+              },
+              {
+                "code": "destination",
+                "message": "Destination backend enforcement is not independently verified"
+              },
+              {
+                "code": "onsite",
+                "message": "Onsite once-off and recurring checkout compatibility is not verified"
+              },
+              {
+                "code": "provider",
+                "message": "Reachable sandbox notifications and cancellation are not verified"
+              },
+              {
+                "code": "terms",
+                "message": "Reviewed product licence, prices and terms are required"
+              },
+              {
+                "code": "business",
+                "message": "Confirmed company disclosures are required"
+              },
+              {
+                "code": "recovery",
+                "message": "Production backup and recovery procedure is not reviewed"
+              },
+              {
+                "code": "approval",
+                "message": "Separate explicit live-launch approval is required"
+              }
+            ]
+          },
+          {
+            "productId": "shiftmate",
+            "checkoutEnabled": false,
+            "blockers": [
+              {
+                "code": "implementation",
+                "message": "Payment and destination lifecycle implementation still in progress"
+              },
+              {
+                "code": "mode",
+                "message": "Billing mode is disabled or unknown"
+              },
+              {
+                "code": "credentials",
+                "message": "Environment-specific Payfast credentials are missing"
+              },
+              {
+                "code": "ingress",
+                "message": "Trusted notification source metadata is not available"
+              },
+              {
+                "code": "email",
+                "message": "Real verification/reset email delivery is not verified"
+              },
+              {
+                "code": "destination",
+                "message": "Destination backend enforcement is not independently verified"
+              },
+              {
+                "code": "onsite",
+                "message": "Onsite once-off and recurring checkout compatibility is not verified"
+              },
+              {
+                "code": "provider",
+                "message": "Reachable sandbox notifications and cancellation are not verified"
+              },
+              {
+                "code": "terms",
+                "message": "Reviewed product licence, prices and terms are required"
+              },
+              {
+                "code": "business",
+                "message": "Confirmed company disclosures are required"
+              },
+              {
+                "code": "recovery",
+                "message": "Production backup and recovery procedure is not reviewed"
+              },
+              {
+                "code": "approval",
+                "message": "Separate explicit live-launch approval is required"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "errors": []
+}

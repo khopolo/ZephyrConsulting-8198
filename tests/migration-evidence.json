@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-15T04:05:29.653Z",
+  "additiveStatements": 29,
+  "preservedCounts": {
+    "account": 3,
+    "audit_log": 0,
+    "customer_order": 0,
+    "customer_profile": 3,
+    "entitlement": 0,
+    "legal_page": 6,
+    "payment_event": 0,
+    "plan": 3,
+    "product": 2,
+    "rate_limit": 1,
+    "request_limit": 1,
+    "session": 3,
+    "setting": 6,
+    "subscription": 0,
+    "support_ticket": 5,
+    "user": 3,
+    "verification": 0
+  },
+  "backupIntegrity": "ok",
+  "localRestore": "passed",
+  "remoteApplied": true
+}
