@@ -2,7 +2,7 @@
   "expo": {
     "icon": "./assets/icon.png",
     "android": {
-      "package": "com.appId.runable",
+      "package": "com.zephyrconsulting.app",
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#ffffff"
@@ -10,12 +10,11 @@
       "edgeToEdgeEnabled": true
     },
     "extra": {
-      "apiUrl": "https://zephyrc-lupasrk-preview-4200.runable.site/",
-      "applicationId": "zephyrc-lupasrk",
-      "runableAuthIssuer": "https://api.runable.com/api/auth"
+      "apiUrl": "https://www.zephyrconsulting.co.za",
+      "applicationId": "zephyr-consulting"
     },
     "ios": {
-      "bundleIdentifier": "com.appId.runable",
+      "bundleIdentifier": "com.zephyrconsulting.app",
       "supportsTablet": true
     },
     "splash": {
@@ -23,10 +22,10 @@
       "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
-    "name": "mobile",
-    "slug": "mobile",
+    "name": "Zephyr Consulting",
+    "slug": "zephyr-consulting",
     "version": "1.0.0",
-    "scheme": "runable-zephyrc-lupasrk",
+    "scheme": "zephyr-consulting",
     "orientation": "portrait",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,

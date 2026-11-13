@@ -12,15 +12,17 @@ export default function Index() {
       edges={["top", "left", "right"]}
       style={[styles.container, { backgroundColor: colors.background }]}
     >
-      <Text style={[styles.title, { color: colors.foreground }]}>Welcome</Text>
+      <Text style={[styles.title, { color: colors.foreground }]}>Zephyr Consulting</Text>
 
       <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.border }]}>
         {ping.isLoading ? (
           <ActivityIndicator color={colors.primary} />
         ) : ping.isError ? (
-          <Text style={{ color: colors.destructive }}>API Error</Text>
+          <Text style={{ color: colors.destructive }}>Service unavailable</Text>
         ) : (
-          <Text style={{ color: colors.mutedForeground }}>API Status: {ping.data?.message}</Text>
+          <Text style={{ color: colors.mutedForeground }}>
+            API Status: {ping.data?.message || "Connected"}
+          </Text>
         )}
       </View>
     </SafeAreaView>

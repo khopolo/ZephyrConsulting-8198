@@ -1,10 +1,6 @@
 # Zephyr Consulting — Design
 
-> Starter design brief. Replace this content with the app you're building before writing any UI.
-> Keep it short and concrete — it's the single source of truth for palette, typography, pages,
-> screens, and flows across web, mobile, and desktop.
-
-South African consulting storefront and account portal. Web only. Deep navy #071c36, electric blue #2864e9, white and cool grey. Poppins display and body, generous line height. Original supplied logo shown undistorted; product assets limited to icons to avoid unverified banner claims.
+South African consulting storefront and account portal. Deep navy #071c36, electric blue #2864e9, white and cool grey. Poppins display and body, generous line height. Original supplied logo shown undistorted; product assets limited to icons to avoid unverified banner claims.
 Split navy hero with editorial headline left, layered clearly illustrative product interfaces right and a subtle technical grid. White service strip, spacious product showcase, blue support CTA, navy footer. 1200px max width, 24px mobile gutters, 8–16px corners. Visible keyboard focus and reduced-motion support. No fake metrics, reviews or client logos.
 Catalogue, product details, services, about, support, sign-in, dashboard, admin and labelled legal drafts share this language. Billing and app access fail closed while external integrations are missing.
 Official slogan (confirmed by the user): "A gentle breeze of wealth". Use this exact wording in brand copy; do not imply guaranteed financial outcomes.

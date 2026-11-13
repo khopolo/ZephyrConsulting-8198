@@ -10,14 +10,14 @@ export default function Explore() {
       edges={["top", "left", "right"]}
       style={[styles.container, { backgroundColor: colors.background }]}
     >
-      <Text style={[styles.title, { color: colors.foreground }]}>Explore</Text>
+      <Text style={[styles.title, { color: colors.foreground }]}>Solutions</Text>
       <Text style={[styles.body, { color: colors.mutedForeground }]}>
-        A second screen showing the SafeAreaView + useColors() pattern. Add your own screens as
-        files under app/(tabs)/ or app/.
+        Explore Zephyr Consulting services, product support, and digital operations for growing South
+        African businesses.
       </Text>
 
       <View style={[styles.pill, { backgroundColor: colors.secondary }]}>
-        <Text style={{ color: colors.secondaryForeground }}>Themed surface</Text>
+        <Text style={{ color: colors.secondaryForeground }}>Business support</Text>
       </View>
     </SafeAreaView>
   );
