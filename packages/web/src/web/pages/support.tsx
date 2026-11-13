@@ -49,7 +49,7 @@ export default function Support() {
               ].map(([k, v]) => (
                 <div key={k}>
                   <b>{k}</b>
-                  <span>{v || "Configuration required"}</span>
+                  <span>{v || "Available on request"}</span>
                 </div>
               ))}
             </div>

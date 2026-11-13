@@ -9,12 +9,14 @@ import {
   PhoneIllustration,
   SupportCTA,
 } from "../components/site";
-import { useCatalogue } from "../queries/store";
 export default function Home() {
-  const catalogue = useCatalogue();
   return (
     <>
-      <Seo title="A gentle breeze of wealth" />
+      <Seo
+        title="Zephyr Consulting"
+        description="Zephyr Consulting provides practical IT services, business software, application development, and support for South African businesses."
+        keywords="Zephyr Consulting, IT services South Africa, application development, business software, tech support, Zephyr products, SafeSpace, ShiftMate SA, CVForge, Docuflow, Echolock"
+      />
       <section className="hero">
         <div className="container herogrid">
           <div className="herocopy">
@@ -98,76 +100,54 @@ export default function Home() {
             </div>
           </div>
           <div className="productgrid">
-            <article className="productcard safe">
-              <div className="productcardtop">
-                <ProductIcon id="safespace" />
-                <span className="pill">PERSONAL SAFETY</span>
-              </div>
-              <h3>SafeSpace</h3>
-              <h4>
-                One press. Five seconds.
-                <br />
-                Help on the way.
-              </h4>
-              <p>
-                Designed to help you reach your chosen emergency contacts when you need support.
-              </p>
-              <div className="productfoot">
-                <span>
-                  Proposed once-off price{" "}
-                  <b>
-                    {catalogue.data
-                      ? `R${((catalogue.data.plans.find((p) => p.productId === "safespace")?.price ?? 10000) / 100).toFixed(0)}`
-                      : "Loading…"}
-                  </b>
-                </span>
-                <Link
-                  href="/products/safespace"
-                  className="circlelink"
-                  aria-label="Explore SafeSpace"
-                >
-                  <ArrowUpRight />
-                </Link>
-              </div>
-              <span className="statusline">Features under review · Checkout not yet enabled</span>
-            </article>
-            <article className="productcard shift">
-              <div className="productcardtop">
-                <ProductIcon id="shiftmate" />
-                <span className="pill">SHIFTS & ESTIMATED PAY</span>
-              </div>
-              <h3>
-                ShiftMate <span>SA</span>
-              </h3>
-              <h4>
-                Track. Calculate.
-                <br />
-                Know your pay.
-              </h4>
-              <p>
-                A clearer view of your working hours and estimated gross earnings, designed for
-                South African workers.
-              </p>
-              <div className="productfoot">
-                <span>
-                  Proposed Pro monthly{" "}
-                  <b>
-                    {catalogue.data
-                      ? `R${((catalogue.data.plans.find((p) => p.id === "shiftmate-month")?.price ?? 3999) / 100).toFixed(2)}`
-                      : "Loading…"}
-                    <small>/month</small>
-                  </b>
-                </span>
-                <Link
-                  href="/products/shiftmate"
-                  className="circlelink"
-                  aria-label="Explore ShiftMate SA"
-                >
-                  <ArrowUpRight />
-                </Link>
-              </div>
-              <span className="statusline">Features under review · Recurring billing disabled</span>
-            </article>
+            {[
+              {
+                id: "cvforge",
+                title: "CVForge",
+                tag: "CAREER TOOLS",
+                summary: "Build a stronger CV in minutes.",
+                text: "A streamlined way to create polished, professional CVs and job-ready documents.",
+                status: "BETA",
+                href: "/products/cvforge",
+              },
+              {
+                id: "docuflow",
+                title: "Docuflow",
+                tag: "WORKFLOW AUTOMATION",
+                summary: "Organise documents. Move work faster.",
+                text: "A document-driven workflow platform designed for approvals, routing, and structured operations.",
+                status: "PILOT",
+                href: "/products/docuflow",
+              },
+              {
+                id: "echolock",
+                title: "Echolock",
+                tag: "INTERACTIVE EXPERIENCE",
+                summary: "Listen closely. Unlock the pattern.",
+                text: "An immersive challenge experience built around sound, timing, and pattern recognition.",
+                status: "PROTOTYPE",
+                href: "/products/echolock",
+              },
+            ].map((product) => (
+              <article className="productcard safe" key={product.id}>
+                <div className="productcardtop">
+                  <ProductIcon id={product.id} />
+                  <span className="pill">{product.tag}</span>
+                </div>
+                <h3>{product.title}</h3>
+                <h4>{product.summary}</h4>
+                <p>{product.text}</p>
+                <div className="productfoot">
+                  <span>
+                    Status <b>{product.status}</b>
+                  </span>
+                  <Link href={product.href} className="circlelink" aria-label={`Explore ${product.title}`}>
+                    <ArrowUpRight />
+                  </Link>
+                </div>
+                <span className="statusline">Portfolio showcase · Product availability subject to verification</span>
+              </article>
+            ))}
           </div>
         </div>
       </section>

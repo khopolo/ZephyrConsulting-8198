@@ -27,6 +27,51 @@ await db
         "Multiple-job management",
       ]),
     },
+    {
+      id: "cvforge",
+      name: "CVForge",
+      description:
+        "A CV and professional document workflow tool designed to help users craft polished application documents quickly.",
+      status: "beta",
+      features: JSON.stringify([
+        "Professional CV templates",
+        "Editable sections and version tracking",
+        "Export-ready layouts",
+        "Simple document workflow",
+      ]),
+      instructions:
+        "CVForge is intended to help job seekers and professionals prepare strong CVs quickly. Validate export formats and final positioning before public commercial rollout.",
+    },
+    {
+      id: "docuflow",
+      name: "Docuflow",
+      description:
+        "A document-driven workflow platform for managing repetitive business processes, approvals, and document movement across teams.",
+      status: "pilot",
+      features: JSON.stringify([
+        "Document templates",
+        "Workflow stages and approvals",
+        "Task tracking",
+        "Structured document routing",
+      ]),
+      instructions:
+        "Docuflow is designed for teams working with document-heavy processes. Confirm internal process requirements and security controls before deployment.",
+    },
+    {
+      id: "echolock",
+      name: "Echolock",
+      description:
+        "An immersive interactive experience built around sound, timing, and pattern recognition to create a memorable challenge-driven product.",
+      status: "prototype",
+      features: JSON.stringify([
+        "Audio-driven interaction",
+        "Pattern-based challenge flow",
+        "Re-playable mechanics",
+        "Brandable interactive showcase",
+      ]),
+      instructions:
+        "Echolock is presented as an interactive concept and prototype. Validate gameplay, performance, and audience fit before any public launch claim.",
+    },
   ])
   .onConflictDoNothing();
 await db

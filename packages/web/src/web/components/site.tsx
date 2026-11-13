@@ -51,16 +51,83 @@ export const services = [
 ];
 export function Seo({
   title,
-  description = "Zephyr Consulting — A gentle breeze of wealth. Practical IT solutions, application development and business technology in South Africa.",
+  description = "Zephyr Consulting offers practical IT services, business software, application development, support and digital solutions for South African businesses.",
+  keywords = "Zephyr Consulting, IT services South Africa, business software, app development, software support, digital solutions, CVForge, Docuflow, Echolock, SafeSpace, ShiftMate SA",
+  canonicalUrl,
+  schema,
 }: {
   title: string;
   description?: string;
+  keywords?: string;
+  canonicalUrl?: string;
+  schema?: Record<string, unknown>;
 }) {
   useEffect(() => {
-    document.title = `${title} | Zephyr Consulting`;
-    document.querySelector('meta[name="description"]')?.setAttribute("content", description);
+    const fullTitle = `${title} | Zephyr Consulting`;
+    const pageUrl = canonicalUrl ?? `${window.location.origin}${window.location.pathname}`;
+
+    document.title = fullTitle;
+
+    const setMeta = (selector: string, attribute: string, value: string) => {
+      let tag = document.querySelector(selector) as HTMLMetaElement | null;
+      if (!tag) {
+        tag = document.createElement("meta");
+        if (selector.startsWith("meta[name=")) {
+          tag.setAttribute("name", selector.match(/name="([^"]+)"/)?.[1] ?? "");
+        }
+        if (selector.startsWith("meta[property=")) {
+          tag.setAttribute("property", selector.match(/property="([^"]+)"/)?.[1] ?? "");
+        }
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute(attribute, value);
+    };
+
+    setMeta('meta[name="description"]', "content", description);
+    setMeta('meta[name="keywords"]', "content", keywords);
+    setMeta('meta[name="geo.region"]', "content", "ZA");
+    setMeta('meta[name="geo.placename"]', "content", "South Africa");
+    setMeta('meta[property="og:title"]', "content", fullTitle);
+    setMeta('meta[property="og:description"]', "content", description);
+    setMeta('meta[property="og:type"]', "content", "website");
+    setMeta('meta[property="og:url"]', "content", pageUrl);
+    setMeta('meta[property="og:locale"]', "content", "en_ZA");
+
+    const canonical = document.querySelector('link[rel="canonical"]') ?? document.createElement('link');
+    canonical.setAttribute('rel', 'canonical');
+    canonical.setAttribute('href', pageUrl);
+    if (!document.head.contains(canonical)) document.head.appendChild(canonical);
+
+    const defaultSchema = {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "Zephyr Consulting",
+      url: "https://www.zephyrconsulting.co.za",
+      logo: "https://www.zephyrconsulting.co.za/images/zephyr-logo.png",
+      description:
+        "Zephyr Consulting provides practical IT services, application development, business software, and support solutions for South African businesses.",
+      areaServed: "South Africa",
+      sameAs: [],
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        email: "support@zephyrconsulting.co.za",
+        areaServed: "ZA",
+      },
+    };
+
+    const payload = schema ?? defaultSchema;
+    const existingSchema = document.querySelector('script[data-seo-schema="zephyr"]');
+
+    if (existingSchema) existingSchema.remove();
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.dataset.seoSchema = "zephyr";
+    script.textContent = JSON.stringify(payload);
+    document.head.appendChild(script);
+
     window.scrollTo(0, 0);
-  }, [title, description]);
+  }, [title, description, keywords, canonicalUrl, schema]);
   return null;
 }
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -143,9 +210,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
         <div className="container footbottom">
-          <span>
-            © {new Date().getFullYear()} Zephyr Consulting. Company details awaiting confirmation.
-          </span>
+          <span>© {new Date().getFullYear()} Zephyr Consulting.</span>
           <span>Built around your business.</span>
         </div>
       </footer>
@@ -153,11 +218,46 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 export function ProductIcon({ id }: { id: string }) {
+  const names: Record<string, string> = {
+    safespace: "SafeSpace",
+    shiftmate: "ShiftMate SA",
+    cvforge: "CVForge",
+    docuflow: "Docuflow",
+    echolock: "Echolock",
+  };
+  const palette: Record<string, string> = {
+    safespace: "#0B1F3A",
+    shiftmate: "#2864E9",
+    cvforge: "#1F7A8C",
+    docuflow: "#3A5A40",
+    echolock: "#6D28D9",
+  };
+  const initials: Record<string, string> = {
+    safespace: "SS",
+    shiftmate: "SM",
+    cvforge: "CF",
+    docuflow: "DF",
+    echolock: "EL",
+  };
+  const label = initials[id] ?? id.slice(0, 2).toUpperCase();
+  const bg = palette[id] ?? "#071c36";
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="${names[id] ?? id}">
+      <rect width="120" height="120" rx="26" fill="${bg}"/>
+      <circle cx="60" cy="60" r="48" fill="rgba(255,255,255,0.12)"/>
+      <text x="60" y="70" text-anchor="middle" font-size="34" font-family="Arial, sans-serif" font-weight="700" fill="white">${label}</text>
+    </svg>
+  `;
+
   return (
     <img
       className="producticon"
       src={`/images/${id}-icon.png`}
-      alt={`${id === "safespace" ? "SafeSpace" : "ShiftMate SA"} product icon`}
+      alt={`${names[id] ?? id} product icon`}
+      onError={(event) => {
+        const img = event.currentTarget;
+        img.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      }}
     />
   );
 }

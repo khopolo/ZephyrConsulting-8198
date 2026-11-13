@@ -7,10 +7,10 @@ function Index() {
 
   return (
     <div>
-      <h1>Welcome</h1>
+      <h1>Zephyr Consulting</h1>
       <p>Platform: {desktop ? `Desktop (${desktop.platform})` : "Web"}</p>
       <p>
-        API Status: {ping.isLoading ? "Loading..." : ping.isError ? "Error" : ping.data?.message}
+        API status: {ping.isLoading ? "Loading..." : ping.isError ? "Unavailable" : ping.data?.message}
       </p>
     </div>
   );

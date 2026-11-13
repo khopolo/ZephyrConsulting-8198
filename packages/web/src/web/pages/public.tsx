@@ -15,7 +15,27 @@ import { useCatalogue, useLegal } from "../queries/store";
 export function Services() {
   return (
     <>
-      <Seo title="Services" />
+      <Seo
+        title="IT Services"
+        description="Zephyr Consulting provides application development, business software, technology consulting, and IT support services for South African businesses."
+        keywords="Zephyr Consulting IT services, application development South Africa, business software, technology consulting, IT support, systems support"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          name: "Zephyr Consulting",
+          url: "https://www.zephyrconsulting.co.za",
+          description:
+            "Zephyr Consulting provides application development, business software, technology consulting and IT support services for South African businesses.",
+          areaServed: "South Africa",
+          serviceType: [
+            "Application Development",
+            "Business Software",
+            "Technology Consulting",
+            "IT Support",
+            "Workflow Automation",
+          ],
+        }}
+      />
       <PageHero
         eyebrow="OUR SERVICES"
         title="Technology that fits your business."
@@ -53,7 +73,11 @@ export function Services() {
 export function About() {
   return (
     <>
-      <Seo title="About us" />
+      <Seo
+        title="About Zephyr Consulting"
+        description="Learn about Zephyr Consulting, a South African technology partner focused on practical IT solutions, product support, and business software."
+        keywords="About Zephyr Consulting, South African IT company, business technology, software support, application development"
+      />
       <PageHero
         eyebrow="ABOUT ZEPHYR"
         title="Your goals. Our starting point."
@@ -93,11 +117,15 @@ export function Products() {
   const q = useCatalogue();
   return (
     <>
-      <Seo title="Products" />
+      <Seo
+        title="Products and solutions"
+        description="Explore Zephyr Consulting products and solutions including CVForge, Docuflow, Echolock, SafeSpace, and ShiftMate SA."
+        keywords="Zephyr Consulting products, CVForge, Docuflow, Echolock, SafeSpace, ShiftMate SA, business software, app products"
+      />
       <PageHero
         eyebrow="OUR PRODUCTS"
         title="Made for the way you live and work."
-        text="Explore SafeSpace and ShiftMate SA. Existing applications remain in Base44; verified access integration is still required."
+        text="Explore our portfolio, including CVForge, Docuflow, and Echolock. Product status, access and launch readiness remain subject to verification."
       />
       <section className="container section">
         {q.isLoading ? (
@@ -144,7 +172,11 @@ export function Product() {
   } catch {}
   return (
     <>
-      <Seo title={p.name} />
+      <Seo
+        title={p.name}
+        description={`${p.name} by Zephyr Consulting — ${p.description}. Explore product details, status, and solution fit for business and personal use.`}
+        keywords={`${p.name}, Zephyr Consulting, ${p.category ?? "technology product"}, software, app, product details`}
+      />
       <section className={`producthero ${safe ? "safecolor" : "shiftcolor"}`}>
         <div className="container productdetailgrid">
           <div>
